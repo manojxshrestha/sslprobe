@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSLProbe Scan Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>SSLProbe Scan Report</h1>
+    <p>Generated on: {{ scan_time }}</p>
+    <table>
+        <tr>
+            <th>IP</th>
+            <th>Port</th>
+            <th>Domains</th>
+            <th>Issuer</th>
+            <th>Expiry</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.ip }}</td>
+            <td>{{ result.port }}</td>
+            <td>{{ result.domains | join(', ') }}</td>
+            <td>{{ result.issuer }}</td>
+            <td>{{ result.expiry }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

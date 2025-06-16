@@ -1,0 +1,7 @@
+cidr: 
+ports: 443
+output: report.html
+format: html
+rate: 500
+validate: false
+no_wildcards: true
